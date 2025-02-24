@@ -1,0 +1,32 @@
+{
+  "name": "gelato-task-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammmad-al/gelato-task-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhammmad-al/gelato-task-2/issues"
+  },
+  "homepage": "https://github.com/muhammmad-al/gelato-task-2#readme",
+  "description": "",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.19",
+    "hardhat-deploy": "^0.14.0"
+  },
+  "dependencies": {
+    "@gelatonetwork/relay-context": "^4.1.0",
+    "@gelatonetwork/relay-sdk-viem": "^1.3.0",
+    "@openzeppelin/contracts": "^5.2.0",
+    "dotenv": "^16.4.7",
+    "viem": "^2.23.5"
+  }
+}
