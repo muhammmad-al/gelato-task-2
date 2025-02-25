@@ -19,7 +19,7 @@ async function main() {
         transport: http(`https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_KEY}`),
     });
     // 4. Prepare the call data for requestTokens()
-    const faucetAddress = "0xdcC6CFD124014E55190F397aA14521824A366FA0"; // your deployed faucet address
+    const faucetAddress = "0xa7071fcDA999B45C82aD25973dDd385e4CC2BA6b"; // your deployed faucet address
     const chainId = await client.getChainId();
     console.log("chainId:", chainId);
     const data = encodeFunctionData({
