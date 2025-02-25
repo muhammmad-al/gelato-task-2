@@ -58,7 +58,11 @@ const RequestButton = () => {
       setTxHash(null);
       
       // 1. Create Gelato Relay instance
-      const relay = new GelatoRelay();
+      const relay = new GelatoRelay({
+        contract: {
+          relay1BalanceERC2771: "0xd8253782c45a12053594b9deB72d8e8aB2Fca54c"
+        }
+      });
       
       // 2. Get the user's address first
       const accounts = await window.ethereum.request({ 
