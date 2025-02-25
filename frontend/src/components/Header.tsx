@@ -59,7 +59,7 @@ const Header = () => {
         fetchTokenBalance(address);
       });
       
-      // Also set up a fallback polling mechanism for safety
+      // Set up a fallback polling mechanism for safety
       const intervalId = setInterval(() => {
         fetchTokenBalance(address);
       }, 30000); // Check every 30 seconds as a fallback

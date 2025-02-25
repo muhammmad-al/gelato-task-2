@@ -6,7 +6,6 @@ import { GelatoRelay, CallWithERC2771Request, ERC2771Type } from '@gelatonetwork
 import { createWalletClient, custom, encodeFunctionData } from 'viem';
 import { sepolia } from 'viem/chains';
 
-// API key should be in environment variables
 const GELATO_RELAY_API_KEY = process.env.NEXT_PUBLIC_GELATO_RELAY_API_KEY || "";
 
 const RequestButton = () => {

@@ -1,4 +1,3 @@
-// src/app/page.tsx
 import Header from '@/components/Header';
 import RequestButton from '@/components/RequestButton';
 import FaucetStatus from '@/components/FaucetStatus';

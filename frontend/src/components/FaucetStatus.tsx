@@ -1,4 +1,3 @@
-// src/components/FaucetStatus.tsx
 "use client";
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
@@ -9,7 +8,7 @@ const FaucetStatus = () => {
   const [isPaused, setIsPaused] = useState<boolean | null>(null);
   const [requestCounter, setRequestCounter] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isRefreshing, setIsRefreshing] = useState(false); // New state for refresh vs initial load
+  const [isRefreshing, setIsRefreshing] = useState(false); 
 
   useEffect(() => {
     const checkFaucetStatus = async () => {
@@ -19,7 +18,6 @@ const FaucetStatus = () => {
       }
       
       try {
-        // Use isRefreshing for subsequent checks to avoid UI flickering
         if (isPaused === null) {
           setIsLoading(true);
         } else {
@@ -49,17 +47,13 @@ const FaucetStatus = () => {
       }
     };
     
-    // Check immediately
     checkFaucetStatus();
     
-    // Set up interval to check status every 10 seconds
     const interval = setInterval(checkFaucetStatus, 10000);
     
-    // Clean up on unmount
     return () => clearInterval(interval);
-  }, [isPaused]); // Added isPaused to dependencies to track state changes
+  }, [isPaused]); 
 
-  // Only show loading indicator on initial load, not during refreshes
   if (isLoading && isPaused === null) {
     return (
       <div className="mt-4 p-4 border rounded-lg w-full max-w-md bg-gray-50">
