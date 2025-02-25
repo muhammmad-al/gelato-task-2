@@ -14,6 +14,22 @@ const RequestButton = () => {
   const [taskId, setTaskId] = useState<string | null>(null);
   const [taskStatus, setTaskStatus] = useState<string | null>(null);
   const [txHash, setTxHash] = useState<string | null>(null);
+  const [cooldown, setCooldown] = useState(0);
+  const [cooldownActive, setCooldownActive] = useState(false);
+
+  // Cooldown timer effect
+  useEffect(() => {
+    if (cooldown <= 0) {
+      setCooldownActive(false);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCooldown(cooldown - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [cooldown]);
 
   // Poll for status updates if we have a taskId
   useEffect(() => {
@@ -56,6 +72,10 @@ const RequestButton = () => {
       setTaskId(null);
       setTaskStatus(null);
       setTxHash(null);
+      
+      // Set cooldown for 60 seconds
+      setCooldown(60);
+      setCooldownActive(true);
       
       // 1. Create Gelato Relay instance
       const relay = new GelatoRelay({
@@ -120,6 +140,9 @@ const RequestButton = () => {
     } catch (error) {
       console.error('Error requesting tokens:', error);
       alert('Error requesting tokens. Check console for details.');
+      // Reset cooldown if there's an error
+      setCooldown(0);
+      setCooldownActive(false);
     } finally {
       setIsLoading(false);
     }
@@ -161,14 +184,16 @@ const RequestButton = () => {
     <div className="flex flex-col items-center">
       <button
         onClick={requestTokens}
-        disabled={isLoading}
+        disabled={isLoading || cooldownActive}
         className={`py-2 px-6 rounded font-medium ${
-          isLoading
+          isLoading || cooldownActive
             ? 'bg-gray-300 cursor-not-allowed'
             : 'bg-blue-600 hover:bg-blue-700 text-white'
         }`}
       >
-        {isLoading ? 'Processing...' : 'Request Tokens (Gasless)'}
+        {isLoading ? 'Processing...' : cooldownActive 
+          ? `Cooldown (${cooldown}s)` 
+          : 'Request Tokens (Gasless)'}
       </button>
       
       {taskId && (
