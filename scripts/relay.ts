@@ -1,3 +1,5 @@
+// testing script from Gelato documentation, process flow is now handled by UI component
+
 import { CallWithERC2771Request, ERC2771Type, GelatoRelay } from "@gelatonetwork/relay-sdk-viem";
 import { createWalletClient, http, encodeFunctionData, Hex } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
@@ -19,7 +21,7 @@ async function main() {
         transport: http(`https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_KEY}`),
     });
     // 4. Prepare the call data for requestTokens()
-    const faucetAddress = "0xa7071fcDA999B45C82aD25973dDd385e4CC2BA6b"; // your deployed faucet address
+    const faucetAddress = "0x33B739959f88b96089b5771f6132b100E100eB66"; // deployed faucet address
     const chainId = await client.getChainId();
     console.log("chainId:", chainId);
     const data = encodeFunctionData({

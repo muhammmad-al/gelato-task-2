@@ -42,7 +42,7 @@ contract Faucet is ERC2771Context {
     function setPause(bool _paused) external {
         paused = _paused;
         
-        // Optionally, reset the counter when unpausing.
+        // reset the counter when unpausing.
         if (!_paused) {
             requestCounter = 0;
             counterResetTime = block.timestamp;

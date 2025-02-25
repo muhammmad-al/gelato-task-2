@@ -2,9 +2,9 @@ import { ethers } from "hardhat";
 
 async function main() {
   // Gelato's forwarder address on Sepolia
-  const FORWARDER_SEPOLIA = "0xb80c96295344c03da7e283f58f88ff8c90d74654";
+  const FORWARDER_SEPOLIA = "0xd8253782c45a12053594b9deB72d8e8aB2Fca54c";
   
-  // Deploy the token
+  // Deploy the MAL token
   console.log("Deploying FaucetToken...");
   const TokenFactory = await ethers.getContractFactory("FaucetToken");
   const token = await TokenFactory.deploy();
@@ -25,7 +25,7 @@ async function main() {
   
   // Fund the faucet with tokens
   console.log("Funding the faucet with tokens...");
-  const tokenAmount = ethers.parseEther("100000"); // 100,000 tokens
+  const tokenAmount = ethers.parseEther("100000"); // 100,000 MAL tokens
   await token.transfer(faucetAddress, tokenAmount);
   console.log(`Faucet funded with ${ethers.formatEther(tokenAmount)} tokens`);
 }
