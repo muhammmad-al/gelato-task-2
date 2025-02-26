@@ -13,6 +13,7 @@ Live demo: https://gelato-task-2-4252.vercel.app/
 
 ## How it works
 
+Note: your MetaMask wallet must be connected to the Sepolia testnet before being able to use this faucet
 1. Users connect their wallet to the Sepolia testnet and request tokens with a single click (only signing the transaction)
 2. Request is processed via Gelato Relay (ERC2771) without requiring gas
 3. After a successful token transfer, the Web3 Function automatically pauses the faucet
