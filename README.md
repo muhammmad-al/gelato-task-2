@@ -21,9 +21,9 @@ Live demo: https://gelato-task-2-4252.vercel.app/
 ## Architecture
 
 - **Smart Contracts**
- - `FaucetToken.sol`: Simple ERC20 token
- - `Faucet.sol`: Token distribution with ERC2771 support
- - `FaucetChecker.sol`: Web3 Function for automated control
+ - `FaucetToken.sol`: Simple ERC20 MAL token
+ - `Faucet.sol`: Token distribution faucet with ERC2771 support
+ - `FaucetChecker.sol`: Web3 Function for automated faucet control
 
 - **Frontend**
  - React/Next.js components: Header, FaucetStatus, RequestButton
@@ -31,6 +31,6 @@ Live demo: https://gelato-task-2-4252.vercel.app/
  - Real-time state management and error handling
 
 - **Gelato Integration**
- - Web3 Functions automate pause/unpause logic
+ - Web3 Functions automate pause/unpause faucet logic
  - Relay SDK enables gasless token requests
- - Task status tracking with user feedback
+ - Task status tracking 
